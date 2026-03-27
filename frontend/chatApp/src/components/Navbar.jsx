@@ -35,28 +35,60 @@ export const Navbar = () => {
   }
   return (
     <>
-    <div className='bg-teal-600'>
-        <nav className='bg-teal-800 flex justify-between px-4 py-4 w-full'>
-            <div>
-                <a href="" className='text-xl text-white hover:text-green-400'>Django Chat</a>
-            </div>
-            {isLoggedin ? (
-                <div className='flex justify-center space-x-3'>
-                <Link to={'/profile'} className='text-white hover:text-green-400  lg:px-4'>{username}</Link>
-                
-                <Link to="/requests" className='text-white hover:text-green-400 lg:px-4'>Friend List</Link>
-                <Link to="/requests" className='text-white hover:text-green-400 lg:px-4'>Request</Link>
-                <button className='text-white hover:text-green-400 cursor-none hover:cursor-pointer' onClick={logout}>Logout</button>
-            </div>
-            ):(
-              <div className='flex justify-center space-x-3'>
-                <Link to="/signup" className='text-white hover:text-green-400 lg:px-4'>New User?</Link>
-                
-            </div>
-            )}
-            
-        </nav>
+<div className="bg-teal-600">
+  <nav className="bg-teal-800 flex flex-col md:flex-row md:items-center md:justify-between px-4 py-4 w-full">
+    
+    {/* Logo */}
+    <div className="flex justify-between items-center w-full md:w-auto">
+      <Link to={"/"} className="text-xl text-white hover:text-green-400">Django Chat</Link>
     </div>
+
+    {/* Menu */}
+    {isLoggedin ? (
+      <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-3 md:mt-0">
+        
+        <Link
+          to="/profile"
+          className="text-white hover:text-green-400"
+        >
+          {username}
+        </Link>
+
+        <Link
+          to="/requests"
+          className="text-white hover:text-green-400"
+        >
+          Friend List
+        </Link>
+
+        <Link
+          to="/requests"
+          className="text-white hover:text-green-400"
+        >
+          Request
+        </Link>
+
+        <button
+          className="text-white hover:text-green-400 cursor-pointer text-left md:text-center"
+          onClick={logout}
+        >
+          Logout
+        </button>
+
+      </div>
+    ) : (
+      <div className="flex flex-col md:flex-row md:items-center mt-3 md:mt-0">
+        <Link
+          to="/signup"
+          className="text-white hover:text-green-400"
+        >
+          New User?
+        </Link>
+      </div>
+    )}
+
+  </nav>
+</div>
 
     </>
   )

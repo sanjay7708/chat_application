@@ -133,10 +133,10 @@ MEDIA_ROOT=BASE_DIR/'media'
 
 CORS_ALLOWED_ORIGINS = [
     
-    'https://chat-application-3naj5zksi-sanjay7708s-projects.vercel.app',
+    "http://localhost:5173"
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://chat-application-3naj5zksi-sanjay7708s-projects.vercel.app',
+    "http://localhost:5173"
 ]
 CORS_ALLOW_CREDENTIALS=True
 
