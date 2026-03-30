@@ -46,7 +46,7 @@ jobs:
       with:
         context: ./chat_project
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/django-backend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/django-chatapp-backend:latest
 
     # build and push frontend
     - name: Build and push frontend Image
@@ -54,7 +54,7 @@ jobs:
       with:
         context: ./frontend/chatApp
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/react-frontend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/react-chatapp-frontend:latest
   
   deploye:
     needs: CI
@@ -70,8 +70,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/chat-app 
-            docker pull ${{ secrets.DOCKER_USERNAME }}/django-backend:latest
-            docker pull ${{ secrets.DOCKER_USERNAME }}/react-frontend:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/django-chatapp-backend:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/react-chatapp-frontend:latest
 
             docker compose down
             docker compose up -d
