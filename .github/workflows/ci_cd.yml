@@ -27,7 +27,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run tests with coverage
       run: |
-        coverage run manage.py test accounts.test.auth_test
+        coverage run manage.py test accounts.test.test_login
         coverage report
 
     
