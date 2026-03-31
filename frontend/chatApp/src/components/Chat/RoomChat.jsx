@@ -38,7 +38,7 @@ export const RoomChat = () => {
         return
       }
 
-    socketRef.current = new WebSocket(`ws://127.0.0.1:8000/ws/chat/${roomName}/?token=${token}`)
+    socketRef.current = new WebSocket(`ws://43.205.94.202:8001/ws/chat/${roomName}/?token=${token}`)
 
     socketRef.current.onopen = () => {
       console.log('websocket connected')
