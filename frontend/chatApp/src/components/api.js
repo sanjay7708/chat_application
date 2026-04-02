@@ -1,9 +1,9 @@
+// frontend/src/api.js
 import axios from "axios";
 
-
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8000/',
-    withCredentials: true
+    baseURL: process.env.REACT_APP_API_URL || "http://localhost:8000/",
+    withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
@@ -11,29 +11,26 @@ api.interceptors.request.use((config) => {
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
-    return config
-
-})
-
+    return config;
+});
 
 api.interceptors.response.use(
     (response) => response,
     async (err) => {
         const originalRequest = err.config;
-        if (err.response?.status == 401 && !originalRequest._retry) {
+        if (err.response?.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
             try {
-                const refreshToken = localStorage.getItem('refresh');
-                const res = await axios.post('http://43.205.94.202:8001/accounts/api/token/refresh/', {
-                    refresh: refreshToken,
-                })
+                const refreshToken = localStorage.getItem("refresh");
+                const res = await axios.post(
+                    `${process.env.REACT_APP_API_URL || "http://localhost:8000"}/accounts/api/token/refresh/`,
+                    { refresh: refreshToken }
+                );
                 const newAccessToken = res.data.access;
-                localStorage.setItem('access', newAccessToken)
-                originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
-                return api(originalRequest)
-            }
-
-            catch {
+                localStorage.setItem("access", newAccessToken);
+                originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+                return api(originalRequest);
+            } catch {
                 localStorage.clear();
                 window.location.href = "/login";
                 return Promise.reject(err);
@@ -41,8 +38,6 @@ api.interceptors.response.use(
         }
         return Promise.reject(err);
     }
-    
-)
+);
 
-
-export default api
+export default api;
