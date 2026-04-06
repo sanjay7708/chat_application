@@ -24,7 +24,7 @@ export const Login = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try{
-      const res=await api.post('http://43.205.94.202:8001/accounts/login/',user);
+      const res=await api.post('accounts/login/',user);
       localStorage.setItem("access",res.data.access)
       localStorage.setItem("refresh",res.data.refresh)
       localStorage.setItem("username",res.data.username)
