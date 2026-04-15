@@ -8,7 +8,7 @@ export const Rooms = () => {
     useEffect(()=>{
         const listroom=async()=>{
             try{
-                const res=await api.get('chat/roomlist/')
+                const res=await api.get('/chat/roomlist/')
                 setListRoom(res.data)
             }
             catch{

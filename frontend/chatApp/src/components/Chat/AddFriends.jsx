@@ -7,7 +7,7 @@ export const AddFriends = () => {
         const apicall=async()=>{
             try{
               
-                const res=await api.get('accounts/userlist/')
+                const res=await api.get('/accounts/userlist/')
                 console.log(res.data)
                 setData(res.data)
             }
@@ -21,7 +21,7 @@ export const AddFriends = () => {
 
     const sendFriendRequest=async(reciverId)=>{
       try{
-        const res=await api.post('chat/addFriend/',{
+        const res=await api.post('/chat/addFriend/',{
           reciver_id:reciverId
         })
         console.log(res)

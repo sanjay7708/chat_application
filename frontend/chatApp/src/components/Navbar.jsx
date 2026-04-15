@@ -12,7 +12,7 @@ export const Navbar = () => {
     try{
       const refreshToken=localStorage.getItem('refresh');
     if (refreshToken){
-      await axios.post('http://127.0.0.1:8000/accounts/logout/',{
+      await api.post('/accounts/logout/',{
         refresh:refreshToken
       });
     }

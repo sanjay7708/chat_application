@@ -17,7 +17,7 @@ export const RoomChat = () => {
     const getroom_messages = async () => {
       
       try {
-        const res = await api.get(`chat/room_detail/${roomName}/`)
+        const res = await api.get(`/chat/room_detail/${roomName}/`)
         
         // Normalize old messages
         const normalizedOld = res.data.map(item => ({

@@ -24,13 +24,13 @@ export const Login = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try{
-      const res=await api.post('accounts/login/',user);
+      const res=await api.post('/accounts/login/',user);
       localStorage.setItem("access",res.data.access)
       localStorage.setItem("refresh",res.data.refresh)
       localStorage.setItem("username",res.data.username)
 
       // fetch username
-      const who=await api.get('accounts/whoami/')
+      const who=await api.get('/accounts/whoami/')
       
       setUsername(who.data.username);
       

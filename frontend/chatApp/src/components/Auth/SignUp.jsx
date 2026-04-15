@@ -23,7 +23,7 @@ export const SignUp = () => {
     const handleSubmit=async(e)=>{
         e.preventDefault()
         try{
-            const res=await api.post('accounts/signup/',newuser)
+            const res=await api.post('/accounts/signup/',newuser)
             alert(res.data.message)
             navigate('/login')
         }

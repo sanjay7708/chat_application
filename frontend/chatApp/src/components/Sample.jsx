@@ -6,7 +6,7 @@ export const Sample = () => {
     useEffect(()=>{
         const apicall=async()=>{
             try{
-                const res=await api.get('chat/userlist/')
+                const res=await api.get('/chat/userlist/')
                 console.log(res.data)
                 setData(res.data)
             }

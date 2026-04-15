@@ -132,10 +132,11 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
 
 CORS_ALLOWED_ORIGINS = [
-    
+    "http://onlinechat.ddns.net",
     "http://43.205.94.202:3000"
 ]
 CSRF_TRUSTED_ORIGINS = [
+    "http://onlinechat.ddns.net",
     "http://43.205.94.202:3000"
 ]
 CORS_ALLOW_CREDENTIALS=True

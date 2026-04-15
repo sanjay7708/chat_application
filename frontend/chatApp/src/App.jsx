@@ -29,7 +29,7 @@ const [authLoading, setAuthLoading] = useState(true)
   }
   
   
-  api.get("accounts/whoami/")
+  api.get("/accounts/whoami/")
     .then(res => {
       setUsername(res.data.username)
       setIsLoggedin(true)

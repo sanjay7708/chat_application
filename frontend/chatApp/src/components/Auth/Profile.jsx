@@ -14,7 +14,7 @@ export const Profile = () => {
   useEffect(() => {
     const getUserDetails = async () => {
       try {
-        const res = await api.get('accounts/profile/')
+        const res = await api.get('/accounts/profile/')
         setUserDetails({
           username: res.data.username,
           email: res.data.email,
@@ -38,7 +38,7 @@ export const Profile = () => {
     const formData = new FormData()
     formData.append('image', image)
     try {
-      const res = await api.patch('accounts/profile/', formData)
+      const res = await api.patch('/accounts/profile/', formData)
       setUserDetails({
         profile_image: res.data.image
       })

@@ -7,7 +7,7 @@ export const Requests = () => {
     useEffect(()=>{
         const getrequest=async()=>{
             try{
-                const res=await api.get('chat/income_request/')
+                const res=await api.get('/chat/income_request/')
                 console.log(res)
                 setInterestRequest(res.data)
             }

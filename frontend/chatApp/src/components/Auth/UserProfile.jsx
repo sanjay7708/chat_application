@@ -13,7 +13,7 @@ export const UserProfile = () => {
 
   useEffect(() => {
     const getUserProfile = async () => {
-      const res = await api.get(`accounts/user_profile/${userid}/`)
+      const res = await api.get(`/accounts/user_profile/${userid}/`)
       console.log(res.data)
       setUserDetails({
         username: res.data.username,
