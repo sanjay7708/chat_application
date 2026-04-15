@@ -140,8 +140,18 @@ CSRF_TRUSTED_ORIGINS = [
     "http://43.205.94.202:3000"
 ]
 CORS_ALLOW_CREDENTIALS=True
-
-
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+]
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]
 
 CHANNEL_LAYERS = {
     "default": {
