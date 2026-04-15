@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // 🔥 Hardcoded backend URL
-const BASE_URL = "http://43.205.94.202:8001/";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const api = axios.create({
     baseURL: BASE_URL,
